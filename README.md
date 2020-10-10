@@ -9,3 +9,6 @@ Please for run the project use:
 go build agileengine/imagecache
 ./imagecache
 ````
+
+Feel free to run the project with the docker compose, 
+in that case, please use the .env.example.docker as template
