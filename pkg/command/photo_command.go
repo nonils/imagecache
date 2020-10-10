@@ -20,6 +20,11 @@ func LoadImages() {
 	if isImagedInit {
 		return
 	}
+	processImages()
+}
+
+func processImages() {
+	repository.DropImageCollection()
 	searchImages()
 }
 
@@ -29,7 +34,7 @@ func searchImages() {
 	for i := 2; i <= page.PageCount; i++ {
 		go func(pageNumber int) {
 			page := searchPage(pageNumber)
-			getImageFromPage(page)
+			go getImageFromPage(page)
 		}(i)
 	}
 }

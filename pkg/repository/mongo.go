@@ -22,3 +22,8 @@ func StoreImages(images []interface{}) {
 	collection := mongoClient.Database("agile_engine").Collection("images")
 	collection.InsertMany(context.TODO(), images)
 }
+
+func DropImageCollection() {
+	collection := mongoClient.Database("agile_engine").Collection("images")
+	collection.Drop(context.TODO())
+}

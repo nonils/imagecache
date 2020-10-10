@@ -18,7 +18,7 @@ func CheckStatusCodeIs200(res *http.Response) error {
 func CheckError(err error, msg string) {
 	if err != nil {
 		fmt.Println(msg)
-		fmt.Println()
+		fmt.Println(err)
 	}
 }
 func GetConfigValueFromKey(key string) string {
