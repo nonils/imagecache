@@ -2,6 +2,7 @@ package main
 
 import (
 	"agileengine/imagecache/pkg/command"
+	"agileengine/imagecache/pkg/handler"
 	"agileengine/imagecache/pkg/repository"
 	"agileengine/imagecache/pkg/utils"
 	"github.com/joho/godotenv"
@@ -17,10 +18,7 @@ func main() {
 	repository.InitializeMongoClient()
 	command.LoadImages()
 	r := gin.Default()
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "pong",
-		})
-	})
+	r.GET("/images/:id", handler.GetImageById)
+	r.GET("/search/:searchTerm", handler.SearchImageByTerm)
 	r.Run(":" + port)
 }
