@@ -3,6 +3,7 @@ package utils
 import (
 	"errors"
 	"fmt"
+	"github.com/patrickmn/go-cache"
 	"net/http"
 	"os"
 )
@@ -23,3 +24,5 @@ func CheckError(err error, msg string) {
 func GetConfigValueFromKey(key string) string {
 	return os.Getenv(key)
 }
+
+var Cache *cache.Cache
