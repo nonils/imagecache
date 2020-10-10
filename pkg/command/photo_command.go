@@ -27,8 +27,10 @@ func searchImages() {
 	page := searchPage(1)
 	getImageFromPage(page)
 	for i := 2; i <= page.PageCount; i++ {
-		page := searchPage(1)
-		getImageFromPage(page)
+		go func(pageNumber int) {
+			page := searchPage(pageNumber)
+			getImageFromPage(page)
+		}(i)
 	}
 }
 
