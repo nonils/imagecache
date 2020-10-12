@@ -12,3 +12,12 @@ go build agileengine/imagecache
 
 Feel free to run the project with the docker compose, 
 in that case, please use the .env.example.docker as template
+
+
+in case that you want to use the docker compose 
+please run this commands
+
+``
+mv .env.example.docker .env
+docker-compose up --build
+``
